@@ -2,7 +2,7 @@
 
 <project>
   <fileVersion>2</fileVersion>
-  <fileChecksum>3641767496</fileChecksum>
+  <fileChecksum>19776077</fileChecksum>
   <configuration>
     <name>Debug</name>
     <outputs>
@@ -67,6 +67,12 @@
           <file> 9</file>
         </tool>
       </outputs>
+      <inputs>
+        <tool>
+          <name>A430</name>
+          <file> 18</file>
+        </tool>
+      </inputs>
     </file>
     <file>
       <name>[ROOT_NODE]</name>
@@ -94,6 +100,12 @@
           <file> 10</file>
         </tool>
       </outputs>
+      <inputs>
+        <tool>
+          <name>A430</name>
+          <file> 18</file>
+        </tool>
+      </inputs>
     </file>
     <file>
       <name>$PROJ_DIR$\Debug\Obj\c_asm4.pbd</name>
@@ -135,12 +147,6 @@
           <file> 13</file>
         </tool>
       </outputs>
-      <inputs>
-        <tool>
-          <name>ICC430</name>
-          <file> 15 32 18 3 2 22</file>
-        </tool>
-      </inputs>
     </file>
     <file>
       <name>$PROJ_DIR$\sys\thread.c</name>
@@ -195,10 +201,18 @@
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 15 32 18 3 2</file>
+          <file> 15 32 18 3 2 22</file>
         </tool>
       </inputs>
     </file>
+    <forcedrebuild>
+      <name>$PROJ_DIR$\arch\threads.asm</name>
+      <tool>A430</tool>
+    </forcedrebuild>
+    <forcedrebuild>
+      <name>$PROJ_DIR$\arch\wdt_int.asm</name>
+      <tool>A430</tool>
+    </forcedrebuild>
   </configuration>
   <configuration>
     <name>Release</name>
