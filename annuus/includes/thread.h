@@ -19,4 +19,5 @@ extern unsigned char Thread_started;
 extern int count;
 
 void PrepareThread(ptr_thread_ctb thread);
+void CreateThread(ptr_thread_ctb thread_ctb, ptr_thread_entry_t entry);
 #endif
