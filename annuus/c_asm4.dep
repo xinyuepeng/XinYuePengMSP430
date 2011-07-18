@@ -2,72 +2,124 @@
 
 <project>
   <fileVersion>2</fileVersion>
-  <fileChecksum>986876514</fileChecksum>
+  <fileChecksum>3641767496</fileChecksum>
   <configuration>
     <name>Debug</name>
     <outputs>
-      <file>$TOOLKIT_DIR$\config\multiplier.xcl</file>
-      <file>$PROJ_DIR$\Debug\Obj\wdt_int.r43</file>
-      <file>$PROJ_DIR$\Debug\Obj\c_asm4.pbd</file>
       <file>$PROJ_DIR$\wdt_int.asm</file>
       <file>$PROJ_DIR$\Debug\Exe\c_asm4.d43</file>
+      <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
+      <file>$TOOLKIT_DIR$\inc\in430.h</file>
+      <file>$PROJ_DIR$\arch\threads.asm</file>
+      <file>$TOOLKIT_DIR$\lib\clib\cl430f.r43</file>
+      <file>$TOOLKIT_DIR$\config\multiplier.xcl</file>
       <file>$PROJ_DIR$\threads.asm</file>
-      <file>$PROJ_DIR$\main.c</file>
+      <file>$PROJ_DIR$\SysConfig.h</file>
       <file>$PROJ_DIR$\Debug\Obj\threads.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\wdt_int.r43</file>
       <file>$TOOLKIT_DIR$\config\lnk430F147.xcl</file>
       <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
       <file>$PROJ_DIR$\Debug\Obj\main.r43</file>
-      <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
-      <file>$TOOLKIT_DIR$\lib\clib\cl430f.r43</file>
-      <file>$TOOLKIT_DIR$\inc\in430.h</file>
-      <file>$PROJ_DIR$\SysConfig.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\Hardware.pbi</file>
+      <file>$PROJ_DIR$\includes\SysConfig.h</file>
+      <file>$PROJ_DIR$\arch\wdt_int.asm</file>
+      <file>$PROJ_DIR$\Debug\Obj\c_asm4.pbd</file>
       <file>$TOOLKIT_DIR$\inc\msp430x14x.h</file>
+      <file>$PROJ_DIR$\sys\system.c</file>
+      <file>$PROJ_DIR$\main.c</file>
+      <file>$PROJ_DIR$\includes\threads.h'.c</file>
+      <file>$PROJ_DIR$\includes\thread.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\userapp.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\thread.r43</file>
+      <file>$PROJ_DIR$\sys\thread.c</file>
+      <file>$PROJ_DIR$\Debug\Obj\system.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\userapp.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\thread.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\system.r43</file>
+      <file>$PROJ_DIR$\arch\Hardware.c</file>
+      <file>$PROJ_DIR$\Debug\Obj\Hardware.r43</file>
+      <file>$PROJ_DIR$\includes\Hardware.h</file>
+      <file>$PROJ_DIR$\apps\userapp.c</file>
     </outputs>
-    <file>
-      <name>$PROJ_DIR$\Debug\Obj\c_asm4.pbd</name>
-      <inputs>
-        <tool>
-          <name>BILINK</name>
-          <file> 9</file>
-        </tool>
-      </inputs>
-    </file>
     <file>
       <name>$PROJ_DIR$\wdt_int.asm</name>
       <outputs>
         <tool>
           <name>A430</name>
-          <file> 1</file>
+          <file> 10</file>
         </tool>
       </outputs>
-      <inputs>
-        <tool>
-          <name>A430</name>
-          <file> 15 14</file>
-        </tool>
-      </inputs>
     </file>
     <file>
       <name>$PROJ_DIR$\Debug\Exe\c_asm4.d43</name>
       <inputs>
         <tool>
           <name>XLINK</name>
-          <file> 8 0 10 7 1 12</file>
+          <file> 11 6 31 13 29 24 9 27 10 5</file>
         </tool>
       </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\arch\threads.asm</name>
+      <outputs>
+        <tool>
+          <name>A430</name>
+          <file> 9</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>[ROOT_NODE]</name>
+      <outputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 1</file>
+        </tool>
+      </outputs>
     </file>
     <file>
       <name>$PROJ_DIR$\threads.asm</name>
       <outputs>
         <tool>
           <name>A430</name>
-          <file> 7</file>
+          <file> 9</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\arch\wdt_int.asm</name>
+      <outputs>
+        <tool>
+          <name>A430</name>
+          <file> 10</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Debug\Obj\c_asm4.pbd</name>
+      <inputs>
+        <tool>
+          <name>BILINK</name>
+          <file> 14 12 26 28 23</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\sys\system.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 26</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 29</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
-          <name>A430</name>
-          <file> 15 14</file>
+          <name>ICC430</name>
+          <file> 15</file>
         </tool>
       </inputs>
     </file>
@@ -76,32 +128,77 @@
       <outputs>
         <tool>
           <name>BICOMP</name>
-          <file> 9</file>
+          <file> 12</file>
         </tool>
         <tool>
           <name>ICC430</name>
-          <file> 10</file>
+          <file> 13</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>ICC430</name>
-          <file> 15 13 11 14</file>
+          <file> 15 32 18 3 2 22</file>
         </tool>
       </inputs>
     </file>
     <file>
-      <name>[ROOT_NODE]</name>
+      <name>$PROJ_DIR$\sys\thread.c</name>
       <outputs>
         <tool>
-          <name>XLINK</name>
-          <file> 4</file>
+          <name>BICOMP</name>
+          <file> 28</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 24</file>
         </tool>
       </outputs>
+      <inputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 22 15</file>
+        </tool>
+      </inputs>
     </file>
-    <forcedrebuild>
-      <name>[REBUILD_ALL]</name>
-    </forcedrebuild>
+    <file>
+      <name>$PROJ_DIR$\arch\Hardware.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 14</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 31</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 15</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\apps\userapp.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 23</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 27</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 15 32 18 3 2</file>
+        </tool>
+      </inputs>
+    </file>
   </configuration>
   <configuration>
     <name>Release</name>

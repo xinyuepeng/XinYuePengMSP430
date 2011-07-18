@@ -33,11 +33,25 @@ TriggerName=main
 LimitSize=0
 ByteLimit=50
 [DebugChecksum]
-Checksum=509632659
+Checksum=-1751465601
 [InstructionProfiling]
 Enabled=_ 0
 [CodeCoverage]
 Enabled=_ 0
+[Log file]
+LoggingEnabled=_ 0
+LogFile=_ ""
+Category=_ 0
+[TermIOLog]
+LoggingEnabled=_ 0
+LogFile=_ ""
+[CallStackLog]
+Enabled=0
+[DriverProfiling]
+Enabled=0
+Mode=0
+Graph=0
+Symbiont=0
 [Breakpoints]
 Count=0
 [FET]
@@ -59,20 +73,7 @@ SP=0
 SR=0
 all registers=0
 File name=
-[Log file]
-LoggingEnabled=_ 0
-LogFile=_ ""
-Category=_ 0
-[TermIOLog]
-LoggingEnabled=_ 0
-LogFile=_ ""
 [Aliases]
-Count=0
+A0=_ "D:\Henry\Work\study\XinYuePengMSP430\annuus\threads.asm" "D:\Henry\Work\study\XinYuePengMSP430\annuus\arch\threads.asm"
+Count=1
 SuppressDialog=0
-[CallStackLog]
-Enabled=0
-[DriverProfiling]
-Enabled=0
-Mode=7274583
-Graph=0
-Symbiont=0

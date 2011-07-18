@@ -121,7 +121,7 @@
         </option>
         <option>
           <name>GHeap20Size</name>
-          <state>###Uninitialized###</state>
+          <state>80</state>
         </option>
         <option>
           <name>GeneralMisraRules98</name>
@@ -317,7 +317,8 @@
         </option>
         <option>
           <name>newCCIncludePaths</name>
-          <state></state>
+          <state>.\includes</state>
+          <state>..\includes</state>
         </option>
         <option>
           <name>CCStdIncCheck</name>
@@ -606,7 +607,7 @@
         </option>
         <option>
           <name>SecondaryOutputFile</name>
-          <state></state>
+          <state>(None for the selected format)</state>
         </option>
         <option>
           <name>XDefines</name>
@@ -646,7 +647,7 @@
         </option>
         <option>
           <name>XIncludes</name>
-          <state>###Uninitialized###</state>
+          <state>$TOOLKIT_DIR$\LIB\</state>
         </option>
         <option>
           <name>ModuleStatus</name>
@@ -658,7 +659,7 @@
         </option>
         <option>
           <name>XclFile</name>
-          <state>lnk0t.xcl</state>
+          <state>$TOOLKIT_DIR$\CONFIG\lnk430F147.xcl</state>
         </option>
         <option>
           <name>XclFileSlave</name>
@@ -746,7 +747,7 @@
         </option>
         <option>
           <name>xcProgramEntryLabel</name>
-          <state></state>
+          <state>__program_start</state>
         </option>
         <option>
           <name>DebugInformation</name>
@@ -786,7 +787,7 @@
         </option>
         <option>
           <name>ExtraOutputFile</name>
-          <state></state>
+          <state>c_asm4.a43</state>
         </option>
         <option>
           <name>ExtraOutputFormat</name>
@@ -1772,14 +1773,50 @@
       <data/>
     </settings>
   </configuration>
+  <group>
+    <name>apps</name>
+    <file>
+      <name>$PROJ_DIR$\apps\userapp.c</name>
+    </file>
+  </group>
+  <group>
+    <name>arch</name>
+    <file>
+      <name>$PROJ_DIR$\arch\Hardware.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\arch\threads.asm</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\arch\wdt_int.asm</name>
+    </file>
+  </group>
+  <group>
+    <name>includes</name>
+    <group>
+      <name>arch</name>
+    </group>
+    <file>
+      <name>$PROJ_DIR$\includes\Hardware.h</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\includes\SysConfig.h</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\includes\thread.h</name>
+    </file>
+  </group>
+  <group>
+    <name>sys</name>
+    <file>
+      <name>$PROJ_DIR$\sys\system.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\sys\thread.c</name>
+    </file>
+  </group>
   <file>
     <name>$PROJ_DIR$\main.c</name>
-  </file>
-  <file>
-    <name>$PROJ_DIR$\threads.asm</name>
-  </file>
-  <file>
-    <name>$PROJ_DIR$\wdt_int.asm</name>
   </file>
 </project>
 
