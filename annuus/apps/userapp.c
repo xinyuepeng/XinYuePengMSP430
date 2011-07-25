@@ -18,11 +18,12 @@ void thread1(void)
     
     while(1)
     {
+#if 1     
         if(flag > 0)
           P4OUT |= 0x01;
         else
           P4OUT &= 0xFE;
-        
+#endif        
         delay(10);
         flag = ~flag;
     }
@@ -34,11 +35,12 @@ void thread2(void)
     
     while(1)
     {
+#if 1     
         if(flag > 0)
           P4OUT |= 0x02;
         else
           P4OUT &= 0xFD;
-        
+#endif        
         delay(20);
         flag = ~flag;
     }
@@ -65,4 +67,5 @@ void main(void)
     while(1)
     {
     }
+    //Cannot get here.
 }

@@ -9,4 +9,7 @@
 #define NULL    0
 #endif
 
+#define PRIVILEDGE_LEVEL    16
+
+
 #endif
