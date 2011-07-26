@@ -16,17 +16,18 @@ void Hardware_Initialize(void)
     P1DIR |= 0x0C;
     P1SEL |= 0x0C;
     
-    CCR0 = 512-1;
-    CCTL1 = OUTMOD_7;
-    CCR1 = 384;
-    
-    CCTL2 = OUTMOD_7;
-    CCR2 = 128;
-    
     //P1DIR |= 0x01;
     //P1SEL &= 0xFE;
     //TACCR0 = 0xFFF;   
     //TACCR0 = 0x148;   //20ms
     TACCR0 = 0xA4;      //10ms
+
+    CCTL1 = OUTMOD_7;
+    CCR1 = 0x44;
+    
+    CCTL2 = OUTMOD_7;
+    CCR2 = 0x88;
+        
+    
     TACTL = TASSEL_1 + MC_1 + TAIE;
 }

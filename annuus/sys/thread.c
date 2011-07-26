@@ -4,6 +4,31 @@ thread_ctb_t * g_header = NULL;
 thread_ctb_t * tailer = NULL;
 thread_ctb_t * g_current;
 
+void check_threadevents(void)
+{
+    thread_ctb_t *tmp = g_current;
+    do {
+        tmp = tmp->next;
+        if(tmp->timeout > 0) {
+            tmp->timeout = tmp->timeout > 5 ? (tmp->timeout-5) : 0;
+            if(!tmp->timeout)
+              tmp->state = THREAD_READY;
+        }   
+    } while(tmp != g_current);
+}
+
+ptr_thread_ctb do_schedule(void)
+{
+    thread_ctb_t *tmp = g_current;
+    do {
+        tmp = tmp->next;
+        if(tmp->state == THREAD_READY)
+            break;
+    } while(tmp != g_current);
+    
+    return tmp;
+}
+
 void CreateThread(ptr_thread_ctb thread_ctb, ptr_thread_entry_t entry)
 {    
     if(!thread_ctb)

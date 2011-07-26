@@ -1,19 +1,22 @@
     #include "msp430x14x.h"
-#include "SysConfig.h"    
+    #include "SysConfig.h"    
 
 NAME    Threads
     
     PUBLIC  Start_threads
     PUBLIC  Context_Switch
     PUBLIC  PrepareThread
-
+    PUBLIC  Giveup_cpu
+    
     EXTERN  g_current       ;
-    EXTERN  Thread_started;
+    EXTERN  Thread_started  ;
+    EXTERN  do_schedule     ;
     
     RSEG    CODE
 Start_threads               ;
     DINT
     mov     g_current,        R13  ;
+    mov     #THREAD_RUNNING,  THREAD_STATE_OFFSET(R13)
     mov     0004h(R13),       SP
     pop     R15
     pop     R14
@@ -51,12 +54,51 @@ PrepareThread               ;
     mov     #0000h,           -22(R13);R13
     mov     #0000h,           -24(R13);R14
     mov     #00F0h,           -26(R13);R15
-    sub     #26,               R13
+    sub     #26,              R13
     mov     R13,              0004(R12);SP
+    mov     #THREAD_RUNNING,  THREAD_STATE_OFFSET(R13)
+    mov     #0000h,           THREAD_TIMEOUT_OFFSET(R13)
     pop     R14
     pop     R13
     ret
 
+Giveup_cpu
+    push    sr
+    push    R4
+    push    R5
+    push    R6
+    push    R7
+    push    R8
+    push    R9
+    push    R10
+    push    R11
+    push    R12
+    push    R13
+    push    R14
+    push    R15
+    DINT
+    mov     g_current, R14
+    mov     sp,     0004h(R14)
+    mov     #THREAD_WAIT,        THREAD_STATE_OFFSET(R14)
+    call    #do_schedule
+    mov     R12,    g_current
+    ;mov     0(R14), g_current
+    mov     g_current, R14
+    mov     0004h(R14), sp
+    mov     #THREAD_RUNNING,      THREAD_STATE_OFFSET(R14)
+    pop     R15
+    pop     R14
+    pop     R13
+    pop     R12
+    pop     R11
+    pop     R10
+    pop     R9
+    pop     R8
+    pop     R7
+    pop     R6
+    pop     R5
+    pop     R4
+    reti
 
 Context_Switch              ;
     push    R4
@@ -74,9 +116,13 @@ Context_Switch              ;
     DINT
     mov     g_current, R14
     mov     sp,     0004h(R14)
-    mov     0(R14), g_current
+    mov     #THREAD_READY,        THREAD_STATE_OFFSET(R14)
+    call    #do_schedule
+    mov     R12,    g_current
+    ;mov     0(R14), g_current
     mov     g_current, R14
     mov     0004h(R14), sp
+    mov     #THREAD_RUNNING,      THREAD_STATE_OFFSET(R14)
     pop     R15
     pop     R14
     pop     R13

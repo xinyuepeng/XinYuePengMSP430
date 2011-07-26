@@ -1804,11 +1804,17 @@
       <name>$PROJ_DIR$\includes\SysConfig.h</name>
     </file>
     <file>
+      <name>$PROJ_DIR$\includes\System.h</name>
+    </file>
+    <file>
       <name>$PROJ_DIR$\includes\thread.h</name>
     </file>
   </group>
   <group>
     <name>sys</name>
+    <file>
+      <name>$PROJ_DIR$\sys\schedule.c</name>
+    </file>
     <file>
       <name>$PROJ_DIR$\sys\system.c</name>
     </file>

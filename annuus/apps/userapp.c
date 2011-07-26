@@ -4,6 +4,7 @@
 #include "SysConfig.h"
 #include "Hardware.h"
 #include "thread.h"
+#include "System.h"
 
 void delay(int num)
 {
@@ -24,7 +25,8 @@ void thread1(void)
         else
           P4OUT &= 0xFE;
 #endif        
-        delay(10);
+        //delay(10);
+        ms_sleep(500);
         flag = ~flag;
     }
 }
@@ -41,28 +43,33 @@ void thread2(void)
         else
           P4OUT &= 0xFD;
 #endif        
-        delay(20);
+        //delay(20);
+        ms_sleep(1000);
         flag = ~flag;
     }
 }
+
+
 
 thread_ctb_t tsk[2] =
 {
   0
 };
-
+extern thread_ctb_t idle_tsk;
 void main(void)
 {
     Hardware_Initialize();
-
+    SystemInit();
+    
     CreateThread(&tsk[0], thread1);
     CreateThread(&tsk[1], thread2);
     count = MAX_TIME;
     
     _EINT();
+    SystemReady();
     PrepareThread(&tsk[0]);
     PrepareThread(&tsk[1]);
-    
+
     Start_threads();    
     while(1)
     {

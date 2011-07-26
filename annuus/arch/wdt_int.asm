@@ -1,10 +1,11 @@
 #include "msp430x14x.h"
 #include "SysConfig.h"
 
-    EXTERN g_current  ;
-    EXTERN count      ;
-    EXTERN Thread_started;
-    EXTERN Context_Switch;
+    EXTERN g_current            ;
+    EXTERN count                ;
+    EXTERN Thread_started       ;
+    EXTERN Context_Switch       ;
+    EXTERN check_threadevents   ;
 ;    PUBLIC wdt_isr
     PUBLIC timera_isr
     RSEG    CODE
@@ -23,6 +24,7 @@ timera_isr
     //XOR.B   #0x01, &P4OUT
     ADD     &TAIV, R14
     POP     R14
+    call    #check_threadevents
     TST.B   Thread_started
     jz     just_exit
     DEC     count
