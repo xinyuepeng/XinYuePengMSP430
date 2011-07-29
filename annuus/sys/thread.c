@@ -20,6 +20,7 @@ void check_threadevents(void)
 ptr_thread_ctb do_schedule(void)
 {
     thread_ctb_t *tmp = g_current;
+        
     do {
         tmp = tmp->next;
         if(tmp->state == THREAD_READY)

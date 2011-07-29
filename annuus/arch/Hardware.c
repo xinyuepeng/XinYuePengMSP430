@@ -23,10 +23,10 @@ void Hardware_Initialize(void)
     TACCR0 = 0xA4;      //10ms
 
     CCTL1 = OUTMOD_7;
-    CCR1 = 0x44;
+    CCR1 = 0x01;
     
     CCTL2 = OUTMOD_7;
-    CCR2 = 0x88;
+    CCR2 = 0x98;
         
     
     TACTL = TASSEL_1 + MC_1 + TAIE;

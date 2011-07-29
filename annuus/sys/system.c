@@ -3,7 +3,6 @@
 
 int count;
 unsigned char Thread_started = 0;
-
 static thread_ctb_t idle_tsk;
 
 void system_idle(void)
@@ -13,6 +12,7 @@ void system_idle(void)
         _NOP();
     }
 }
+
 
 void SystemInit(void)
 {
