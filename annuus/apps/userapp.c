@@ -53,6 +53,7 @@ void thread2(void)
 
 void keythread(void)
 {
+#if 0  
     unsigned char temp;
     P1DIR &= ~0x60;
     P1SEL &= ~0x60;
@@ -78,6 +79,38 @@ void keythread(void)
         }
         ms_sleep(50);
     }
+#else
+    unsigned char temp = 0;
+    while(1)
+    {
+        if(temp == 0) {
+            TACCR0 = 0x0A;      //10ms
+
+            CCTL1 = OUTMOD_7;
+            CCR1 = 0x05;
+
+            CCTL2 = OUTMOD_7;
+            CCR2 = 0x06;    
+            TACTL = TASSEL_1 + MC_1;
+            temp = 1;
+        }
+        else
+        {
+            TACCR0 = 0x07;      //10ms
+
+            CCTL1 = OUTMOD_7;
+            CCR1 = 0x03;
+
+            CCTL2 = OUTMOD_7;
+            CCR2 = 0x04;    
+            TACTL = TASSEL_1 + MC_1;
+            temp = 0;
+        }
+        ms_sleep(200);
+        TACTL = TASSEL_1 + MC_0;
+        ms_sleep(120);
+    }
+#endif    
 }
 
 

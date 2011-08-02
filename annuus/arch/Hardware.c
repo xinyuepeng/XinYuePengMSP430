@@ -20,6 +20,7 @@ void Hardware_Initialize(void)
     //P1SEL &= 0xFE;
     //TACCR0 = 0xFFF;   
     //TACCR0 = 0x148;   //20ms
+#if 0    
     TACCR0 = 0xA4;      //10ms
 
     CCTL1 = OUTMOD_7;
@@ -28,6 +29,18 @@ void Hardware_Initialize(void)
     CCTL2 = OUTMOD_7;
     CCR2 = 0x98;
         
-    
     TACTL = TASSEL_1 + MC_1 + TAIE;
+#else
+    TACCR0 = 0x0A;      //10ms
+
+    CCTL1 = OUTMOD_7;
+    CCR1 = 0x05;
+    
+    CCTL2 = OUTMOD_7;
+    CCR2 = 0x06;    
+    TACTL = TASSEL_1 + MC_1;
+    
+    TBCCR0 = 0xA4;      //10ms
+    TBCTL = TBSSEL_1 + MC_1 + TAIE;
+#endif
 }

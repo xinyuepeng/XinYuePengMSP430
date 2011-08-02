@@ -8,6 +8,7 @@
     EXTERN check_threadevents   ;
 ;    PUBLIC wdt_isr
     PUBLIC timera_isr
+    PUBLIC timerb_isr
     RSEG    CODE
 wdt_isr
 ;    TST.B   Thread_started
@@ -34,6 +35,21 @@ timera_isr
 just_exit    
     reti
 
+timerb_isr
+    PUSH    R14
+    //XOR.B   #0x01, &P4OUT
+    ADD     &TBIV, R14
+    POP     R14
+    call    #check_threadevents
+    TST.B   Thread_started
+    jz     just_exit
+    DEC     count
+    jnz     just_exitb
+    mov     #MAX_TIME, count
+    jmp     Context_Switch
+just_exitb    
+    reti
+
 ;============================================================
     COMMON  INTVEC(1)           ; Interrupt vectors
 ;============================================================
@@ -42,4 +58,7 @@ just_exit
     
     ORG     TIMERA1_VECTOR
     DW      timera_isr
+    
+    ORG     TIMERB1_VECTOR
+    DW      timerb_isr
     END
