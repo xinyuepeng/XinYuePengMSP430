@@ -20,4 +20,7 @@
 
 #define PRIVILEDGE_LEVEL    16
 
+
+#define DBG_IDLE_SINGLE         1
+
 #endif

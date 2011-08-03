@@ -3,10 +3,18 @@
 thread_ctb_t * g_header = NULL;
 thread_ctb_t * tailer = NULL;
 thread_ctb_t * g_current;
+extern thread_ctb_t idle_tsk;
 
 void check_threadevents(void)
 {
     thread_ctb_t *tmp = g_current;
+    thread_ctb_t *endflag = g_current;
+    
+#ifdef DBG_IDLE_SINGLE
+    if(g_current == &idle_tsk)
+      tmp = endflag = g_header;
+#endif
+    
     do {
         tmp = tmp->next;
         if(tmp->timeout > 0) {
@@ -14,18 +22,28 @@ void check_threadevents(void)
             if(!tmp->timeout)
               tmp->state = THREAD_READY;
         }   
-    } while(tmp != g_current);
+    } while(tmp != endflag);
 }
 
 ptr_thread_ctb do_schedule(void)
 {
     thread_ctb_t *tmp = g_current;
-        
+    thread_ctb_t *endflag = g_current;
+#ifdef DBG_IDLE_SINGLE
+    if(g_current == &idle_tsk)
+      tmp = endflag = g_header;    
+#endif
+    
     do {
         tmp = tmp->next;
         if(tmp->state == THREAD_READY)
             break;
-    } while(tmp != g_current);
+    } while(tmp != endflag);
+
+#ifdef DBG_IDLE_SINGLE
+    if(tmp == endflag)
+      tmp = &idle_tsk;
+#endif    
     
     return tmp;
 }

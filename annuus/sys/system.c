@@ -3,7 +3,7 @@
 
 int count;
 unsigned char Thread_started = 0;
-static thread_ctb_t idle_tsk;
+thread_ctb_t idle_tsk;
 
 void system_idle(void)
 {
@@ -15,8 +15,12 @@ void system_idle(void)
 
 
 void SystemInit(void)
-{
+{    
+#ifdef DBG_IDLE_SINGLE
+    idle_tsk.thread_entry = system_idle;
+#else
     CreateThread(&idle_tsk, system_idle);
+#endif
 }
 
 void SystemReady(void)
