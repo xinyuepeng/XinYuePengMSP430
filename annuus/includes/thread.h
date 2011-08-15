@@ -13,7 +13,7 @@ typedef struct thread_ctb {
     unsigned short *stackpoint;
     unsigned char stack[STACK_SIZ];  
     unsigned char state;
-    unsigned char non;
+    unsigned char signal;
     unsigned int timeout;
 } thread_ctb_t;
 

@@ -5,6 +5,9 @@
 #include "Hardware.h"
 #include "thread.h"
 #include "System.h"
+void Alarm_BuzzorOff(void);
+void Alarm_BuzzorOn(void);
+
 
 unsigned char freq = 0xA0;
 
@@ -18,7 +21,7 @@ void delay(int num)
 void thread1(void)
 {
     unsigned char flag = 0;
-    
+    unsigned int status;
     while(1)
     {
 #if 1     
@@ -29,7 +32,9 @@ void thread1(void)
 #endif        
         //delay(10);
         ms_sleep(500);
+        status = interrupt_disable();
         flag = ~flag;
+        interrupt_enable(status);
     }
 }
 
@@ -82,9 +87,9 @@ void keythread(void)
 #else
     unsigned char temp = 0;
     while(1)
-    {
+    {  
         if(temp == 0) {
-            TACCR0 = 0x0A;      //10ms
+            TACCR0 = 0x0C;      //10ms
 
             CCTL1 = OUTMOD_7;
             CCR1 = 0x05;
@@ -96,19 +101,27 @@ void keythread(void)
         }
         else
         {
-            TACCR0 = 0x07;      //10ms
+            TACCR0 = 0x9;      //10ms
 
             CCTL1 = OUTMOD_7;
-            CCR1 = 0x03;
+            CCR1 = 0x04;
 
             CCTL2 = OUTMOD_7;
-            CCR2 = 0x04;    
+            CCR2 = 0x05;    
             TACTL = TASSEL_1 + MC_1;
             temp = 0;
         }
         ms_sleep(200);
         TACTL = TASSEL_1 + MC_0;
         ms_sleep(120);
+    }
+    
+    while(1)
+    {
+      Alarm_BuzzorOn();
+      ms_sleep(5000);
+      Alarm_BuzzorOff();
+      ms_sleep(5000);
     }
 #endif    
 }

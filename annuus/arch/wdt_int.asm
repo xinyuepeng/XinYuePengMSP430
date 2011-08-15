@@ -10,7 +10,8 @@
     PUBLIC timera_isr
     PUBLIC timerb_isr
     RSEG    CODE
-wdt_isr
+;wdt_isr
+;    XOR.B   #0x10, &P1OUT
 ;    TST.B   Thread_started
 ;    jz     just_exit
 ;    DEC     count
@@ -18,7 +19,7 @@ wdt_isr
 ;    mov     #MAX_TIME, count
 ;    jmp     Context_Switch
 ;just_exit    
-    reti
+;    reti
 
 timera_isr
     PUSH    R14
@@ -53,8 +54,8 @@ just_exitb
 ;============================================================
     COMMON  INTVEC(1)           ; Interrupt vectors
 ;============================================================
-    ORG     WDT_VECTOR
-    DW      wdt_isr
+;    ORG     WDT_VECTOR
+;    DW      wdt_isr
     
     ORG     TIMERA1_VECTOR
     DW      timera_isr

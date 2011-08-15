@@ -11,8 +11,9 @@ void Hardware_Initialize(void)
     IFG1 &= ~WDTIFG;            //Clear pending WDT interrupts
     IE1 |= WDTIE;               //Enable WDT interrupt
 
-    BCSCTL2 |= SELM_2 + SELS;
-    
+    //BCSCTL2 |= SELM_2 + SELS;
+    BCSCTL2 = 0;                //MCLK = DCOCLK, SMCLK=DCOCLK, = EXT CRYTAL 32.768KHZ
+      
     P1DIR |= 0x0C;
     P1SEL |= 0x0C;
     
@@ -44,3 +45,29 @@ void Hardware_Initialize(void)
     TBCTL = TBSSEL_1 + MC_1 + TAIE;
 #endif
 }
+
+#define SOUND_ALARM 0x10
+
+void Alarm_BuzzorOff(void)
+{
+    IE1 &= ~0x01;
+    P1SEL &= ~SOUND_ALARM;
+    P1OUT &= ~SOUND_ALARM;
+    P1DIR |= SOUND_ALARM;
+}
+
+void Alarm_BuzzorOn(void)
+{
+    WDTCTL = 0x5A12;
+    IE1 |= 0x01;
+}
+
+#if 1
+#pragma vector=WDT_VECTOR
+__interrupt void Alarm_INTSound(void)
+{
+    P1SEL &=~ SOUND_ALARM;
+    P1OUT ^=  SOUND_ALARM;    
+    P1DIR |=  SOUND_ALARM; 
+}
+#endif

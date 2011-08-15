@@ -7,6 +7,8 @@ NAME    Threads
     PUBLIC  Context_Switch
     PUBLIC  PrepareThread
     PUBLIC  Giveup_cpu
+    PUBLIC  interrupt_disable
+    PUBLIC  interrupt_enable
     
     EXTERN  g_current       ;
     EXTERN  Thread_started  ;
@@ -136,5 +138,14 @@ Context_Switch              ;
     pop     R5
     pop     R4
     reti
+
+interrupt_disable
+    mov     SR,     R12
+    dint    
+    ret
+    
+interrupt_enable
+    mov     R12,    SR
+    ret
 
     END
