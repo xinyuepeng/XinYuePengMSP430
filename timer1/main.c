@@ -1,5 +1,6 @@
 #include <msp430x14x.h>
 
+
 void main(void)
 {
     WDTCTL = WDTPW + WDTHOLD;
@@ -10,7 +11,8 @@ void main(void)
   
     CCR0 = 512-1;
     CCTL0 = OUTMOD_7 + CCIE;
-#if 0    
+#if 0
+    /*timerA compare1 and compare2 */
     CCTL1 = OUTMOD_7 + CCIE;
     CCR1 = 384;
     
