@@ -30,7 +30,7 @@ ActionState=1
 Enabled=0
 ShowSource=1
 [DebugChecksum]
-Checksum=1324092834
+Checksum=1890695741
 [State Storage]
 Control Register=0
 [Sequencer]
@@ -60,12 +60,11 @@ Graph=0
 Symbiont=0
 Exclusions=
 [Breakpoints]
-Bp0=_ "STD_CODE" "{$PROJ_DIR$\main.c}.494.12" 0 0 0 0 "" 0 ""
-Bp1=_ "STD_CODE" "{$PROJ_DIR$\main.c}.481.3" 0 0 0 0 "" 0 ""
-Bp2=_ "STD_CODE" "{$PROJ_DIR$\main.c}.471.3" 0 0 0 0 "" 0 ""
-Bp3=_ "STD_CODE" "{$PROJ_DIR$\main.c}.1226.15" 1 0 0 0 "" 0 ""
-Bp4=_ "STD_CODE" "{$PROJ_DIR$\main.c}.1212.3" 1 0 0 0 "" 0 ""
-Count=5
+Bp0=_ "STD_CODE" "{$PROJ_DIR$\main.c}.495.12" 0 0 0 0 "" 0 ""
+Bp1=_ "STD_CODE" "{$PROJ_DIR$\main.c}.483.3" 0 0 0 0 "" 0 ""
+Bp2=_ "STD_CODE" "{$PROJ_DIR$\main.c}.458.5" 0 0 0 0 "" 0 ""
+Bp3=_ "STD_CODE" "{$PROJ_DIR$\main.c}.461.9" 0 0 0 0 "" 0 ""
+Count=4
 [FET]
 Extended Clock mode=-1
 Secure Password=

@@ -199,6 +199,7 @@ __interrupt void Timer_A (void)
 //  used only during TA_ISR. Proper use of the TAIV interrupt vector generator
 //  is demonstrated.
 //  ACLK = n/a, MCLK = SMCLK = TACLK = default DCO ~800kHz
+//  P4.0 = 800000/50000/2=8 Hz
 //
 //           MSP430F149
 //         ---------------
@@ -395,6 +396,7 @@ __interrupt void Timer_A1(void)
   case  2: CCR1 += 16;                      // Add Offset to CCR1
            break;
   case  4: CCR2 += 100;                     // Add Offset to CCR2
+           P4OUT ^= 0x02; 
            break;
   case 10: P4OUT ^= 0x01;                   // Timer_A3 overflow
            break;
@@ -402,7 +404,7 @@ __interrupt void Timer_A1(void)
 }
 #endif
 
-#if 0 ///Test Fail.. need ypxin
+#if 0 ///Test Fail.. ,because I only low frequence XTAL
 //******************************************************************************
 //  MSP-FET430P140 Demo - Timer_A, Toggle P1.0-3, Cont. Mode ISR, HF XTAL ACLK
 //
@@ -581,7 +583,7 @@ void main(void)
 
 #endif
 
-#if 0
+#if 0 //No high frequence XTML
 //******************************************************************************
 //  MSP-FET430P140 Demo - Timer_A, Toggle P1.1/TA0, Up Mode, HF XTAL ACLK
 //
@@ -721,7 +723,7 @@ void main(void)
 
 #endif
 
-#if 0
+#if 0 //Cannot test, because of no high freq XTAL
 //******************************************************************************
 //  MSP-FET430P140 Demo - Timer_A, Toggle P1.1/TA0, Up/Down Mode, HF XTAL ACLK
 //
@@ -869,7 +871,7 @@ void main(void)
 
 #endif
 
-#if 0
+#if 0 //Cannot test
 //*******************************************************************************
 //  MSP-FET430P140 Demo - Timer_A, PWM TA1-2, Up Mode, HF XTAL ACLK
 //
@@ -1141,7 +1143,7 @@ void main(void)
   _BIS_SR(LPM0_bits + GIE);                 // LPM0 + Enable global ints
 }
 
-#pragma vector = TIMERB0_VECTOR
+#pragma vector = TIMERA0_VECTOR
 __interrupt void TimerA0(void)
 {
    new_cap = TACCR0;
@@ -1165,7 +1167,7 @@ __interrupt void TimerA0(void)
 }
 #endif
 
-#if 0 //Check it, henry
+#if 0 //Cannot test, because of high freq XTAL
 //*****************************************************************************
 //  MSP-FET430P140 Demo - Timer_A, Toggle P4.0, Overflow ISR, HF XTAL ACLK
 //
@@ -1276,7 +1278,7 @@ void main(void)
 }
 
 // Timer A0 interrupt service routine
-#pragma vector = TIMERB0_VECTOR
+#pragma vector = TIMERA0_VECTOR
 __interrupt void Timer_A (void)
 {
   P4OUT ^= 0x01;                            // Toggle P4.0
