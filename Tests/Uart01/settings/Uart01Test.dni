@@ -29,8 +29,24 @@ ActionState=1
 [Trace1]
 Enabled=0
 ShowSource=1
+[State Storage]
+Control Register=32912
+[Sequencer]
+Control Register=32912
+NextState0=32912
+NextState1=32912
+[Action Register]
+Break=3
+State Storage=3
+[DebugChecksum]
+Checksum=-888019615
+[CallStack]
+ShowArgs=0
+[Disassembly]
+MixedMode=1
 [Breakpoints]
-Count=0
+Bp0=_ "STD_CODE" "{$PROJ_DIR$\main.c}.976.3" 0 0 0 0 "" 0 ""
+Count=1
 [FET]
 Extended Clock mode=-1
 Secure Password=
@@ -50,15 +66,21 @@ SP=0
 SR=0
 all registers=0
 File name=
-[State Storage]
-Control Register=-1
-[Sequencer]
-Control Register=-1
-NextState0=-1
-NextState1=-1
-[Action Register]
-Break=-1
-State Storage=-1
+[Log file]
+LoggingEnabled=_ 0
+LogFile=_ ""
+Category=_ 0
+[TermIOLog]
+LoggingEnabled=_ 0
+LogFile=_ ""
 [Aliases]
 Count=0
 SuppressDialog=0
+[CallStackLog]
+Enabled=0
+[DriverProfiling]
+Enabled=0
+Mode=0
+Graph=0
+Symbiont=0
+Exclusions=
