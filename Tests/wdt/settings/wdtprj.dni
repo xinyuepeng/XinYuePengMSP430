@@ -1,10 +1,3 @@
-[InterruptLog]
-LogEnabled=0
-SumEnabled=0
-GraphEnabled=0
-ShowTimeLog=1
-ShowTimeSum=1
-SumSortOrder=0
 [Stack]
 FillEnabled=0
 OverflowWarningsEnabled=1
@@ -15,6 +8,22 @@ UseTrigger=1
 TriggerName=main
 LimitSize=0
 ByteLimit=50
+[State Storage]
+Control Register=-1
+[Sequencer]
+Control Register=-1
+NextState0=-1
+NextState1=-1
+[Action Register]
+Break=-1
+State Storage=-1
+[InterruptLog]
+LogEnabled=0
+SumEnabled=0
+GraphEnabled=0
+ShowTimeLog=1
+ShowTimeSum=1
+SumSortOrder=0
 [Breakpoints2]
 Count=0
 [Interrupts]
@@ -29,6 +38,27 @@ ActionState=1
 [Trace1]
 Enabled=0
 ShowSource=1
+[DebugChecksum]
+Checksum=21853657
+[CallStack]
+ShowArgs=0
+[Disassembly]
+MixedMode=1
+[Log file]
+LoggingEnabled=_ 0
+LogFile=_ ""
+Category=_ 0
+[TermIOLog]
+LoggingEnabled=_ 0
+LogFile=_ ""
+[CallStackLog]
+Enabled=0
+[DriverProfiling]
+Enabled=0
+Mode=0
+Graph=0
+Symbiont=0
+Exclusions=
 [Breakpoints]
 Count=0
 [FET]
@@ -50,15 +80,6 @@ SP=0
 SR=0
 all registers=0
 File name=
-[State Storage]
-Control Register=-1
-[Sequencer]
-Control Register=-1
-NextState0=-1
-NextState1=-1
-[Action Register]
-Break=-1
-State Storage=-1
 [Aliases]
 Count=0
 SuppressDialog=0

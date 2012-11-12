@@ -2,22 +2,25 @@
 
 <project>
   <fileVersion>2</fileVersion>
-  <fileChecksum>781718533</fileChecksum>
+  <fileChecksum>2605030919</fileChecksum>
   <configuration>
     <name>Debug</name>
     <outputs>
-      <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
+      <file>$PROJ_DIR$\Debug\Exe\wdtprj.d43</file>
       <file>$PROJ_DIR$\Debug\Obj\main.r43</file>
       <file>$PROJ_DIR$\main.c</file>
-      <file>$PROJ_DIR$\Debug\Obj\Uart01Test.pbd</file>
-      <file>$PROJ_DIR$\Debug\Exe\Uart01Test.d43</file>
+      <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\wdtprj.pbd</file>
+      <file>$TOOLKIT_DIR$\inc\msp430x14x.h</file>
+      <file>$TOOLKIT_DIR$\inc\in430.h</file>
     </outputs>
     <file>
       <name>[ROOT_NODE]</name>
       <outputs>
         <tool>
           <name>XLINK</name>
-          <file> 4</file>
+          <file> 0</file>
         </tool>
       </outputs>
     </file>
@@ -25,14 +28,29 @@
       <name>$PROJ_DIR$\main.c</name>
       <outputs>
         <tool>
+          <name>BICOMP</name>
+          <file> 3</file>
+        </tool>
+        <tool>
           <name>ICC430</name>
           <file> 1</file>
         </tool>
+      </outputs>
+      <inputs>
         <tool>
           <name>BICOMP</name>
-          <file> 0</file>
+          <file> 6 7 4</file>
         </tool>
-      </outputs>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Debug\Obj\wdtprj.pbd</name>
+      <inputs>
+        <tool>
+          <name>BILINK</name>
+          <file> 3</file>
+        </tool>
+      </inputs>
     </file>
   </configuration>
   <configuration>
